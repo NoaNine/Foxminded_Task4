@@ -1,36 +1,48 @@
-﻿using System.Security.Cryptography.X509Certificates;
-
-namespace Communicator
+﻿namespace Communicator
 {
     public class Croupier
     {
         private readonly Func<string> _inputProvider;
         private readonly Action<string> _outputProvider;
-        private Random _random = new Random();
-        private int _number;
-        private int _tryCounter = 0;
+        private Generator _generator;
+
+        public bool Winner { get; private set; }
+        public bool Retry { get; private set; } = true;
 
         public Croupier(Func<string> inputProvider, Action<string> outputProvider, int minRange = 0, int maxRange = 100)
         {
-            if (minRange > maxRange)
-            {
-                throw new ArgumentException();
-            }
             _inputProvider = inputProvider;
             _outputProvider = outputProvider;
-            _number = _random.Next(minRange, maxRange + 1);
+            _generator = new Generator(minRange, maxRange);
         }
 
         public void AskMeNumber()
         {
             string input = _inputProvider() ?? string.Empty;
-            _tryCounter++;
             if (!int.TryParse(input, out int inputNamber))
             {
                 InvalidNumber();
                 return;
             }
             EqualsMyNumber(inputNamber);
+        }
+
+        public void PlayAgain()
+        {
+            _outputProvider(Resources.Messages.Again);
+            string input = _inputProvider();
+            switch (input)
+            {
+                case "+":
+                    Winner = false;
+                    break;
+                case "-":
+                    Retry = false;
+                    break;
+                default:
+                    _outputProvider(Resources.Messages.Incorrect);
+                    break;
+            }
         }
 
         private void InvalidNumber()
@@ -40,7 +52,7 @@ namespace Communicator
 
         private void EqualsMyNumber(int inputNamber)
         {
-            if (inputNamber == _number)
+            if (inputNamber == _generator.Number)
             {
                 IsWinner();
             }
@@ -49,11 +61,11 @@ namespace Communicator
 
         private void IsBiggerOrSmaller(int inputNamber)
         {
-            if (inputNamber < _number)
+            if (inputNamber < _generator.Number)
             {
                 _outputProvider(Resources.Messages.Bigger);
             }
-            if (inputNamber > _number)
+            if (inputNamber > _generator.Number)
             {
                 _outputProvider(Resources.Messages.Smaller);
             }
@@ -61,7 +73,8 @@ namespace Communicator
 
         private void IsWinner()
         {
-            _outputProvider(Resources.Messages.Winner + "\n" + Resources.Messages.Again);
+            Winner = true;
+            _outputProvider(Resources.Messages.Winner);
         }
     }
 }

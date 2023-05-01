@@ -61,7 +61,7 @@ namespace Communicator.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You want to play again?.
+        ///   Looks up a localized string similar to Do you want to play again? If yes enter &quot;+&quot; or no - &quot;-&quot;.
         /// </summary>
         internal static string Again {
             get {
@@ -84,6 +84,15 @@ namespace Communicator.Resources {
         internal static string Greeting {
             get {
                 return ResourceManager.GetString("Greeting", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Incorrect answer..
+        /// </summary>
+        internal static string Incorrect {
+            get {
+                return ResourceManager.GetString("Incorrect", resourceCulture);
             }
         }
         
