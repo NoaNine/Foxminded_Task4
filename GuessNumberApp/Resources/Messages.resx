@@ -117,22 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Again" xml:space="preserve">
-    <value>You want to play again?</value>
-  </data>
-  <data name="Bigger" xml:space="preserve">
-    <value>My number is bigger, try again</value>
-  </data>
   <data name="Greeting" xml:space="preserve">
-    <value>Hi, guess what number from 0 to 100</value>
+    <value>I want to play the game.</value>
   </data>
-  <data name="Invalid" xml:space="preserve">
-    <value>You entered the incorrect number, must be a positive number from 0 to 100</value>
-  </data>
-  <data name="Smaller" xml:space="preserve">
-    <value>My number is smaller, try again</value>
-  </data>
-  <data name="Winner" xml:space="preserve">
-    <value>You WIN, congratulation.</value>
+  <data name="Instruction" xml:space="preserve">
+    <value>Guess what number from 0 to 100.</value>
   </data>
 </root>

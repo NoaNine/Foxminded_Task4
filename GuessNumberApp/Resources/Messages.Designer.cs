@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Communicator.Resources {
+namespace GuessNumberApp.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Communicator.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Communicator.Resources.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GuessNumberApp.Resources.Messages", typeof(Messages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -61,25 +61,7 @@ namespace Communicator.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You want to play again?.
-        /// </summary>
-        internal static string Again {
-            get {
-                return ResourceManager.GetString("Again", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to My number is bigger, try again.
-        /// </summary>
-        internal static string Bigger {
-            get {
-                return ResourceManager.GetString("Bigger", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hi, guess what number from 0 to 100.
+        ///   Looks up a localized string similar to I want to play the game..
         /// </summary>
         internal static string Greeting {
             get {
@@ -88,29 +70,11 @@ namespace Communicator.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You entered the incorrect number, must be a positive number from 0 to 100.
+        ///   Looks up a localized string similar to Guess what number from 0 to 100..
         /// </summary>
-        internal static string Invalid {
+        internal static string Instruction {
             get {
-                return ResourceManager.GetString("Invalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to My number is smaller, try again.
-        /// </summary>
-        internal static string Smaller {
-            get {
-                return ResourceManager.GetString("Smaller", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You WIN, congratulation..
-        /// </summary>
-        internal static string Winner {
-            get {
-                return ResourceManager.GetString("Winner", resourceCulture);
+                return ResourceManager.GetString("Instruction", resourceCulture);
             }
         }
     }

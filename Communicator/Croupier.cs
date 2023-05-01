@@ -6,20 +6,26 @@ namespace Communicator
     {
         private readonly Func<string> _inputProvider;
         private readonly Action<string> _outputProvider;
-        private int _number = 35;
+        private Random _random = new Random();
+        private int _number;
         private int _tryCounter = 0;
 
-        public Croupier(Func<string> inputProvider, Action<string> outputProvider) 
+        public Croupier(Func<string> inputProvider, Action<string> outputProvider, int minRange = 0, int maxRange = 100)
         {
+            if (minRange > maxRange)
+            {
+                throw new ArgumentException();
+            }
             _inputProvider = inputProvider;
             _outputProvider = outputProvider;
+            _number = _random.Next(minRange, maxRange + 1);
         }
 
         public void AskMeNumber()
         {
             string input = _inputProvider() ?? string.Empty;
             _tryCounter++;
-            if(!int.TryParse(input, out int inputNamber))
+            if (!int.TryParse(input, out int inputNamber))
             {
                 InvalidNumber();
                 return;
@@ -29,7 +35,7 @@ namespace Communicator
 
         private void InvalidNumber()
         {
-            _outputProvider("You entered the incorrect number, must be a positive number from 0 to 100");
+            _outputProvider(Resources.Messages.Invalid);
         }
 
         private void EqualsMyNumber(int inputNamber)
@@ -43,20 +49,19 @@ namespace Communicator
 
         private void IsBiggerOrSmaller(int inputNamber)
         {
-            if(inputNamber < _number)
+            if (inputNamber < _number)
             {
-                _outputProvider("My number is bigger, try again");
+                _outputProvider(Resources.Messages.Bigger);
             }
             if (inputNamber > _number)
             {
-                _outputProvider("My number is smaller, try again");
+                _outputProvider(Resources.Messages.Smaller);
             }
         }
 
         private void IsWinner()
         {
-            _outputProvider("You WIN, congratulation.\n" +
-                "You want to play again?");
+            _outputProvider(Resources.Messages.Winner + "\n" + Resources.Messages.Again);
         }
     }
 }
