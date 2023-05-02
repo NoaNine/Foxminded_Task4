@@ -9,11 +9,11 @@
         public bool Winner { get; private set; }
         public bool Retry { get; private set; } = true;
 
-        public Croupier(Func<string> inputProvider, Action<string> outputProvider, int minRange = 0, int maxRange = 100)
+        public Croupier(Func<string> inputProvider, Action<string> outputProvider, Generator generator)
         {
             _inputProvider = inputProvider;
             _outputProvider = outputProvider;
-            _generator = new Generator(minRange, maxRange);
+            _generator = generator;
         }
 
         public void AskMeNumber()

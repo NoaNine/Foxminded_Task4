@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Communicator
 {
-    internal class Generator
+    public class Generator
     {
         private Random _random = new Random();
         private int _minRange;

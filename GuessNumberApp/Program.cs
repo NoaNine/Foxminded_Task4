@@ -6,7 +6,8 @@ namespace GuessNumberApp
     {
         static void Main(string[] args)
         {
-            Croupier croupier = new Croupier(Console.ReadLine, Console.WriteLine);
+            Generator generator = new Generator(0, 100);
+            Croupier croupier = new Croupier(Console.ReadLine, Console.WriteLine, generator);
             Console.WriteLine(Resources.Messages.Greeting);
             while (true)
             {
@@ -18,7 +19,7 @@ namespace GuessNumberApp
                 {
                     break;
                 }
-                if(!croupier.Winner && croupier.Retry) 
+                if (!croupier.Winner && croupier.Retry)
                 {
                     Console.WriteLine(Resources.Messages.Instruction);
                     croupier.AskMeNumber();
