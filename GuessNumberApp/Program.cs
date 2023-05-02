@@ -1,4 +1,8 @@
 ﻿using Communicator;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using System.Configuration;
 
 namespace GuessNumberApp
 {
@@ -6,6 +10,16 @@ namespace GuessNumberApp
     {
         static void Main(string[] args)
         {
+            var value = ConfigurationManager.AppSettings["minRange"];
+            Settings settings = new Settings();
+
+
+            var host = CreateHostBuilder(args).Build();
+            var myService = host.Services.GetRequiredService<MyService>();
+            myService.DoSomething();
+
+
+
             Generator generator = new Generator(0, 100);
             Croupier croupier = new Croupier(Console.ReadLine, Console.WriteLine, generator);
             Console.WriteLine(Resources.Messages.Greeting);
@@ -26,5 +40,14 @@ namespace GuessNumberApp
                 }
             }
         }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+        Host.CreateDefaultBuilder(args)
+            .ConfigureServices((hostContext, services) =>
+            {
+
+                services.AddTransient<MyService>();
+
+            });
     }
 }
