@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Communicator\Communicator.csproj" />
+    <ProjectReference Include="..\GameGuessNumber\GameGuessNumber.csproj" />
   </ItemGroup>
 
   <ItemGroup>

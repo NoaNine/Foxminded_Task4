@@ -1,4 +1,4 @@
-﻿namespace Communicator
+﻿namespace GameGuessNumber
 {
     public class NumberGenerator : INumberGenerator
     {
@@ -13,7 +13,6 @@
             ThrowArgumentException(minRange, maxRange);
             _minRange = minRange;
             _maxRange = maxRange + 1;
-            ChooseNumber();
         }
 
         public void GenerateNumber()

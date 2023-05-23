@@ -1,6 +1,6 @@
-﻿namespace Communicator
+﻿namespace GameGuessNumber
 {
-    public class Croupier
+    public class Master
     {
         private readonly Func<string> _inputProvider;
         private readonly Action<string> _outputProvider;
@@ -9,7 +9,7 @@
         public bool Winner { get; private set; }
         public bool Retry { get; private set; } = true;
 
-        public Croupier(Func<string> inputProvider, Action<string> outputProvider, NumberGenerator generator)
+        public Master(Func<string> inputProvider, Action<string> outputProvider, NumberGenerator generator)
         {
             _inputProvider = inputProvider;
             _outputProvider = outputProvider;

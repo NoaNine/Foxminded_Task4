@@ -1,4 +1,4 @@
-﻿namespace Communicator
+﻿namespace GameGuessNumber
 {
     interface INumberGenerator
     {

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Communicator.Resources {
+namespace GameGuessNumber.Resources {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Communicator.Resources {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Communicator.Resources.Messages", typeof(Messages).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("GameGuessNumber.Resources.Messages", typeof(Messages).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -115,7 +115,7 @@ namespace Communicator.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You WIN, congratulation..
+        ///   Looks up a localized string similar to .
         /// </summary>
         internal static string Winner {
             get {

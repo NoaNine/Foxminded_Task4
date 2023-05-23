@@ -1,4 +1,4 @@
-﻿using Communicator;
+﻿using GameGuessNumber;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -25,22 +25,22 @@ namespace GuessNumberApp
             //var game = host.Services.GetService<GameExt>() ?? throw new ArgumentNullException("Game");
 
             NumberGenerator generator = new NumberGenerator(0, 100);
-            Croupier croupier = new Croupier(Console.ReadLine, Console.WriteLine, generator);
+            Master gameMaster = new Master(Console.ReadLine, Console.WriteLine, generator);
             Console.WriteLine(Resources.Messages.Greeting);
             while (true)
             {
-                if (croupier.Winner)
+                if (gameMaster.Winner)
                 {
-                    croupier.PlayAgain();
+                    gameMaster.PlayAgain();
                 }
-                if (!croupier.Retry)
+                if (!gameMaster.Retry)
                 {
                     break;
                 }
-                if (!croupier.Winner && croupier.Retry)
+                if (!gameMaster.Winner && gameMaster.Retry)
                 {
                     Console.WriteLine(Resources.Messages.Instruction);
-                    croupier.AskMeNumber();
+                    gameMaster.AskMeNumber();
                 }
             }
         }

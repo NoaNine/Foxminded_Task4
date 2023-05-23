@@ -136,6 +136,6 @@
     <value>My number is smaller, try again</value>
   </data>
   <data name="Winner" xml:space="preserve">
-    <value>You WIN, congratulation.</value>
+    <value />
   </data>
 </root>
