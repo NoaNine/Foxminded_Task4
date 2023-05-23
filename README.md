@@ -1,6 +1,6 @@
 # Task4
 
-Проект створено Гавлицьким Олександром в учбових цілях на курсі FoxmindEd.
+Проект створено Гавлицьким Олександром в навчальних цілях на курсі FoxmindEd.
 
 Опис задачі:
 Program should find the maximum sum of elements in line from the list of lines.

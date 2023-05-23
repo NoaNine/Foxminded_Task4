@@ -2,7 +2,6 @@
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using System.Configuration;
 
 namespace GuessNumberApp
 {
@@ -10,17 +9,22 @@ namespace GuessNumberApp
     {
         static void Main(string[] args)
         {
-            var value = ConfigurationManager.AppSettings["minRange"];
-            Settings settings = new Settings();
+            //using IHost host = Host.CreateDefaultBuilder(args)
+            //    .ConfigureAppConfiguration(app =>
+            //    {
+            //        app.SetBasePath(Directory.GetCurrentDirectory());
+            //        app.AddJsonFile("appsettings.json");
+            //    })
+            //    .ConfigureServices((_, services) =>
+            //    {
+            //        services.Configure<GameSettingsExt>(_.Configuration.GetSection("Settings"));
+            //        services.AddScoped(typeof(INumberGenerator), typeof(NumberGenerator));
+            //    })
+            //    .Build();
 
+            //var game = host.Services.GetService<GameExt>() ?? throw new ArgumentNullException("Game");
 
-            var host = CreateHostBuilder(args).Build();
-            var myService = host.Services.GetRequiredService<MyService>();
-            myService.DoSomething();
-
-
-
-            Generator generator = new Generator(0, 100);
+            NumberGenerator generator = new NumberGenerator(0, 100);
             Croupier croupier = new Croupier(Console.ReadLine, Console.WriteLine, generator);
             Console.WriteLine(Resources.Messages.Greeting);
             while (true)
@@ -40,14 +44,5 @@ namespace GuessNumberApp
                 }
             }
         }
-
-        public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureServices((hostContext, services) =>
-            {
-
-                services.AddTransient<MyService>();
-
-            });
     }
 }

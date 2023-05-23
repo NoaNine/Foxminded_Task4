@@ -1,6 +1,6 @@
 ﻿namespace Communicator
 {
-    public class Generator
+    public class NumberGenerator : INumberGenerator
     {
         private Random _random = new Random();
         private int _minRange;
@@ -8,7 +8,7 @@
 
         public int Number { get; private set; }
 
-        public Generator(int minRange, int maxRange)
+        public NumberGenerator(int minRange, int maxRange)
         {
             ThrowArgumentException(minRange, maxRange);
             _minRange = minRange;
@@ -16,7 +16,7 @@
             ChooseNumber();
         }
 
-        public void ChooseNumber()
+        public void GenerateNumber()
         {
             Number = _random.Next(_minRange, _maxRange);
         }
