@@ -118,9 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Greeting" xml:space="preserve">
-    <value>I want to play the game.</value>
+    <value>Hello, welcome to guess the number game.</value>
   </data>
   <data name="Instruction" xml:space="preserve">
-    <value>Guess what number from 0 to 100.</value>
+    <value>You must guess the number.</value>
   </data>
 </root>

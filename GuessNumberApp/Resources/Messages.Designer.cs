@@ -61,7 +61,7 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to I want to play the game..
+        ///   Looks up a localized string similar to Hello, welcome to guess the number game..
         /// </summary>
         internal static string Greeting {
             get {
@@ -70,7 +70,7 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Guess what number from 0 to 100..
+        ///   Looks up a localized string similar to You must guess the number..
         /// </summary>
         internal static string Instruction {
             get {

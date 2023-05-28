@@ -118,24 +118,24 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Again" xml:space="preserve">
-    <value>Do you want to play again? If yes enter "+" or no - "-"</value>
+    <value>Do you want to play again? If yes enter "yes" or no - "no".</value>
   </data>
   <data name="Bigger" xml:space="preserve">
-    <value>My number is bigger, try again</value>
-  </data>
-  <data name="Greeting" xml:space="preserve">
-    <value>Hi, guess what number from 0 to 100</value>
+    <value>Hidden number is bigger, try again.</value>
   </data>
   <data name="Incorrect" xml:space="preserve">
     <value>Incorrect answer.</value>
   </data>
   <data name="Invalid" xml:space="preserve">
-    <value>You entered the incorrect number, must be a positive number from 0 to 100</value>
+    <value>You entered the incorrect number, must be a positive number from 0 to 100.</value>
+  </data>
+  <data name="Limit" xml:space="preserve">
+    <value>Number of attempts exceeded.</value>
   </data>
   <data name="Smaller" xml:space="preserve">
-    <value>My number is smaller, try again</value>
+    <value>Hidden number is smaller, try again.</value>
   </data>
   <data name="Winner" xml:space="preserve">
-    <value />
+    <value>You WON, congratulation!</value>
   </data>
 </root>

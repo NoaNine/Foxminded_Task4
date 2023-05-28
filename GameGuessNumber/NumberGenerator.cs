@@ -1,23 +1,15 @@
-﻿namespace GameGuessNumber
+﻿using GameGuessNumber.Interface;
+
+namespace GameGuessNumber
 {
     public class NumberGenerator : INumberGenerator
     {
-        private Random _random = new Random();
-        private int _minRange;
-        private int _maxRange;
+        private readonly Random _random = new Random();
 
-        public int Number { get; private set; }
-
-        public NumberGenerator(int minRange, int maxRange)
+        public int GenerateNumber(int minRange, int maxRange)
         {
             ThrowArgumentException(minRange, maxRange);
-            _minRange = minRange;
-            _maxRange = maxRange + 1;
-        }
-
-        public void GenerateNumber()
-        {
-            Number = _random.Next(_minRange, _maxRange);
+            return _random.Next(minRange, maxRange + 1);
         }
 
         private void ThrowArgumentException(int minRange, int maxRange)

@@ -61,7 +61,7 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to play again? If yes enter &quot;+&quot; or no - &quot;-&quot;.
+        ///   Looks up a localized string similar to Do you want to play again? If yes enter &quot;yes&quot; or no - &quot;no&quot;..
         /// </summary>
         internal static string Again {
             get {
@@ -70,20 +70,11 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My number is bigger, try again.
+        ///   Looks up a localized string similar to Hidden number is bigger, try again..
         /// </summary>
         internal static string Bigger {
             get {
                 return ResourceManager.GetString("Bigger", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Hi, guess what number from 0 to 100.
-        /// </summary>
-        internal static string Greeting {
-            get {
-                return ResourceManager.GetString("Greeting", resourceCulture);
             }
         }
         
@@ -97,7 +88,7 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You entered the incorrect number, must be a positive number from 0 to 100.
+        ///   Looks up a localized string similar to You entered the incorrect number, must be a positive number from 0 to 100..
         /// </summary>
         internal static string Invalid {
             get {
@@ -106,7 +97,16 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to My number is smaller, try again.
+        ///   Looks up a localized string similar to Number of attempts exceeded..
+        /// </summary>
+        internal static string Limit {
+            get {
+                return ResourceManager.GetString("Limit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden number is smaller, try again..
         /// </summary>
         internal static string Smaller {
             get {
@@ -115,7 +115,7 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to .
+        ///   Looks up a localized string similar to You WON, congratulation!.
         /// </summary>
         internal static string Winner {
             get {
