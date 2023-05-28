@@ -13,16 +13,16 @@ namespace GameGuessNumber
 
         private int HiddenNumber { get; set; }
 
-        public GameMaster(IUserInteractionReader inputProvider, IUserInteractionWriter outputProvider, INumberGenerator generator, IOptionsMonitor<Settings> settings)
+        public GameMaster(IUserInteractionReader input, IUserInteractionWriter output, INumberGenerator generator, IOptionsMonitor<Settings> settings)
         {
-            _reader = inputProvider;
-            _writer = outputProvider;
+            _reader = input ?? throw new ArgumentNullException(nameof(input));
+            _writer = output ?? throw new ArgumentNullException(nameof(output));
             _generator = generator ?? throw new ArgumentNullException(nameof(generator));
             _settings = settings.CurrentValue ?? throw new ArgumentNullException(nameof(settings));
             GenerateHiddenNumber(_generator);
         }
 
-        public void AskMeNumber()
+        public void StartGame()
         {
             int countRetry = 1;
             while (countRetry <= _settings.MaxNumberAttempts)
@@ -32,7 +32,7 @@ namespace GameGuessNumber
                 {
                     _writer.Write(Messages.Invalid);
                 }
-                EqualsMyNumber(inputNamber);
+                EqualsNumber(inputNamber);
                 countRetry++;
             }
             if (countRetry == _settings.MaxNumberAttempts)
@@ -44,7 +44,7 @@ namespace GameGuessNumber
         private void GenerateHiddenNumber(INumberGenerator generator) => 
             HiddenNumber = generator.GenerateNumber(_settings.MinValueOfHiddenNumber, _settings.MaxValueOfHiddenNumber);
 
-        private void EqualsMyNumber(int inputNamber)
+        private void EqualsNumber(int inputNamber)
         {
             if (inputNamber == HiddenNumber)
             {

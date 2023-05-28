@@ -26,9 +26,9 @@ namespace GuessNumberApp
                     services.AddSingleton(typeof(GameMaster));
                 })
                 .Build();
-            var game = host.Services.GetService<GameMaster>() ?? throw new ArgumentNullException(nameof(GameMaster));
+            var game = host.Services.GetService<GameMaster>() ?? throw new ArgumentNullException("GameMaster");
             Console.WriteLine(Messages.Greeting);
-            game.AskMeNumber();
+            game.StartGame();
         }
     }
 }
