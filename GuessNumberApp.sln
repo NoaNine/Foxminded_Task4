@@ -5,7 +5,9 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GuessNumberApp", "GuessNumberApp\GuessNumberApp.csproj", "{A4332B2C-8B54-49B2-81A5-95A6734F423F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameGuessNumber", "GameGuessNumber\GameGuessNumber.csproj", "{D4B512A9-5CB3-4747-8418-EBEA3D1741E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameGuessNumber", "GameGuessNumber\GameGuessNumber.csproj", "{D4B512A9-5CB3-4747-8418-EBEA3D1741E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameGuessNumberTest", "GameGuessNumberTest\GameGuessNumberTest.csproj", "{91E243B2-7548-4115-82A8-350C50F00E02}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{D4B512A9-5CB3-4747-8418-EBEA3D1741E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D4B512A9-5CB3-4747-8418-EBEA3D1741E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D4B512A9-5CB3-4747-8418-EBEA3D1741E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{91E243B2-7548-4115-82A8-350C50F00E02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91E243B2-7548-4115-82A8-350C50F00E02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91E243B2-7548-4115-82A8-350C50F00E02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91E243B2-7548-4115-82A8-350C50F00E02}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
