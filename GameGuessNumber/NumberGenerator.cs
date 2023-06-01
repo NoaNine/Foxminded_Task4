@@ -6,7 +6,7 @@ namespace GameGuessNumber
     {
         private readonly Random _random = new Random();
 
-        public int GenerateNumber(int minRange, int maxRange)
+        public int Generate(int minRange, int maxRange)
         {
             ThrowArgumentException(minRange, maxRange);
             return _random.Next(minRange, maxRange + 1);

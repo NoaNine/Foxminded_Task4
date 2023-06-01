@@ -8,5 +8,11 @@
         {
 
         }
+
+        [TestMethod]
+        public void ArgumentExceptionTest()
+        {
+
+        }
     }
 }

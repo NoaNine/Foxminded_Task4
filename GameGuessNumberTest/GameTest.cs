@@ -3,7 +3,7 @@ using Microsoft.Extensions.Options;
 namespace GameGuessNumberTest
 {
     [TestClass]
-    public class GameMasterTest
+    public class GameTest
     {
         private readonly Mock<INumberGenerator> numbergeneratorMock = new Mock<INumberGenerator>();
         private readonly Mock<IUserInteractionReader> userInteractionReaderMock = new Mock<IUserInteractionReader>();
@@ -17,7 +17,7 @@ namespace GameGuessNumberTest
             settings.MinValueOfHiddenNumber = 0;
             settings.MaxValueOfHiddenNumber = 100;
             settings.MaxNumberAttempts = 1;
-            var gameMaster = new GameMaster
+            var game = new Game
                 (
                 userInteractionReaderMock.Object,
                 userInteractionWriterMock.Object,
@@ -31,7 +31,7 @@ namespace GameGuessNumberTest
             var expectedOutput = @"Hidden number is smaller, try again.";
 
 
-            gameMaster.StartGame();
+            game.StartGame();
 
             Assert.AreEqual(expectedOutput, output.ToString());
         }

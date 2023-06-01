@@ -2,6 +2,6 @@
 {
     public interface INumberGenerator
     {
-        public int GenerateNumber(int minRange, int maxRange);
+        public int Generate(int minRange, int maxRange);
     }
 }

@@ -23,10 +23,10 @@ namespace GuessNumberApp
                     services.AddTransient(typeof(IUserInteractionReader), typeof(ConsoleReader));
                     services.AddTransient(typeof(IUserInteractionWriter), typeof(ConsoleWriter));
                     services.AddScoped(typeof(INumberGenerator), typeof(NumberGenerator));
-                    services.AddSingleton(typeof(GameMaster));
+                    services.AddSingleton(typeof(Game));
                 })
                 .Build();
-            var game = host.Services.GetService<GameMaster>() ?? throw new ArgumentNullException("GameMaster");
+            var game = host.Services.GetService<Game>() ?? throw new ArgumentNullException("Game");
             Console.WriteLine(Messages.Greeting);
             game.StartGame();
         }
