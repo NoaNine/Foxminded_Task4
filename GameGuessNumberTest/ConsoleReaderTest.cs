@@ -7,10 +7,10 @@
         public void ReadTest()
         {
             var userInteractionReaderMock = new Mock<IUserInteractionReader>();
-            var readString = "10";
-            userInteractionReaderMock.Setup(m => m.Read()).Returns(() => readString);
+            var expected = "10";
+            userInteractionReaderMock.Setup(m => m.Read()).Returns(() => expected);
             var result = userInteractionReaderMock.Object;
-            Assert.AreEqual(readString, result.Read());
+            Assert.AreEqual(expected, result.Read());
         }
     }
 }
