@@ -64,7 +64,13 @@ namespace GameGuessNumber
 
         private void ValidSettings()
         {
-            throw new ArgumentException();
+            if (_settings.MinValueOfHiddenNumber > _settings.MaxValueOfHiddenNumber || 
+                _settings.MinValueOfHiddenNumber < 0 || 
+                _settings.MaxNumberAttempts < 1 || 
+                _settings.MaxNumberAttempts < 1)
+            {
+                throw new ArgumentException();
+            }
         }
     }
 }

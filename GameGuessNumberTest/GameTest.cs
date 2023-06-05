@@ -8,30 +8,30 @@ namespace GameGuessNumberTest
         private readonly Mock<INumberGenerator> numbergeneratorMock = new Mock<INumberGenerator>();
         private readonly Mock<IUserInteractionReader> userInteractionReaderMock = new Mock<IUserInteractionReader>();
         private readonly Mock<IUserInteractionWriter> userInteractionWriterMock = new Mock<IUserInteractionWriter>();
-        private readonly Mock<IOptionsMonitor<Settings>> optionsMonitorMock = new Mock<IOptionsMonitor<Settings>>();
+        private readonly Settings settings = new Settings() { MinValueOfHiddenNumber = 1, MaxValueOfHiddenNumber = 100, MaxNumberAttempts = 10 };
 
         [TestMethod]
         public void StartGameTest()
         {
-            var settings = new Settings();
-            settings.MinValueOfHiddenNumber = 0;
-            settings.MaxValueOfHiddenNumber = 100;
-            settings.MaxNumberAttempts = 1;
+            var optionsMonitorMock = Mock.Of<IOptionsMonitor<Settings>>(_ => _.CurrentValue == settings);
             var game = new Game
                 (
                 userInteractionReaderMock.Object,
                 userInteractionWriterMock.Object,
                 numbergeneratorMock.Object, 
-                optionsMonitorMock.Object
+                optionsMonitorMock
                 );
-            var output = new StringWriter();
-            Console.SetOut(output);
+            game.StartGame();
             var input = new StringReader(@"101");
             Console.SetIn(input);
+            var output = new StringWriter();
+            Console.SetOut(output);
+
+
+            
             var expectedOutput = @"Hidden number is smaller, try again.";
 
 
-            game.StartGame();
 
             Assert.AreEqual(expectedOutput, output.ToString());
         }
