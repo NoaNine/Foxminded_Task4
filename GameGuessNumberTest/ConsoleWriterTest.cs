@@ -4,7 +4,7 @@
     public class ConsoleWriterTest
     {
         [TestMethod]
-        public void WriteTest()
+        public void Write_WriteToConsole()
         {
             var userInteractionWriterMock = new Mock<IUserInteractionWriter>();
             var consoleWriter = userInteractionWriterMock.Object;

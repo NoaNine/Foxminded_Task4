@@ -6,7 +6,7 @@
         private readonly Mock<INumberGenerator> numbergeneratorMock = new Mock<INumberGenerator>();
 
         [TestMethod]
-        public void GenerateTest()
+        public void Generate_GenerateRandomNumber()
         {
             var expected = 50;
             numbergeneratorMock.Setup(g => g.Generate(0, 100)).Returns(() => expected);
@@ -17,7 +17,7 @@
 
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
-        public void ArgumentExceptionTest()
+        public void Generate_ThrowException()
         {
             numbergeneratorMock.Setup(g => g.Generate(2, 1)).Throws(new ArgumentException());
             var result = numbergeneratorMock.Object;

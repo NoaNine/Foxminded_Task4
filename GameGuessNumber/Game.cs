@@ -27,7 +27,6 @@ namespace GameGuessNumber
             int countRetry = 0;
             do
             {
-                countRetry++;
                 int answer = _reader.Read();
                 if (IsWinner(answer))
                 {
@@ -35,8 +34,10 @@ namespace GameGuessNumber
                     break;
                 }
                 HandleAnswer(answer);
+                countRetry++;
             }
             while (countRetry < _settings.MaxNumberAttempts);
+            CheckAttempts(countRetry);
         }
 
         private void GenerateHiddenNumber(INumberGenerator generator) => 
@@ -44,6 +45,13 @@ namespace GameGuessNumber
 
         private bool IsWinner(int answer) => _hiddenNumber == answer ? true : false;
 
+        private void CheckAttempts(int countRetry)
+        {
+            if (countRetry == _settings.MaxNumberAttempts)
+            {
+                _writer.Write(Messages.AttemptLimit);
+            }
+        }
         private void HandleAnswer(int answer)
         {
             if (answer < _settings.MinValueOfHiddenNumber || answer > _settings.MaxValueOfHiddenNumber)
