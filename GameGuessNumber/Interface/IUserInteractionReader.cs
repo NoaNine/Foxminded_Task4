@@ -2,6 +2,6 @@
 {
     public interface IUserInteractionReader
     {
-        public string Read();
+        public int Read();
     }
 }

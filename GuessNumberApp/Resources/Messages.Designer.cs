@@ -70,7 +70,7 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must guess the number..
+        ///   Looks up a localized string similar to You must guess the number from 0 to 100, please, enter your answer..
         /// </summary>
         internal static string Instruction {
             get {

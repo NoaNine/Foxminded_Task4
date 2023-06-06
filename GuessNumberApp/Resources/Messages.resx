@@ -121,6 +121,6 @@
     <value>Hello, welcome to guess the number game.</value>
   </data>
   <data name="Instruction" xml:space="preserve">
-    <value>You must guess the number.</value>
+    <value>You must guess the number from 0 to 100, please, enter your answer.</value>
   </data>
 </root>

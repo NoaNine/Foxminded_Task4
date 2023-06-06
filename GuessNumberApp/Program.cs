@@ -28,6 +28,7 @@ namespace GuessNumberApp
                 .Build();
             var game = host.Services.GetService<Game>() ?? throw new ArgumentNullException("Game");
             Console.WriteLine(Messages.Greeting);
+            Console.WriteLine(Messages.Instruction);
             game.StartGame();
         }
     }
