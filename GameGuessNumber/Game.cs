@@ -40,7 +40,7 @@ namespace GameGuessNumber
             CheckAttempts(countRetry);
         }
 
-        private void GenerateHiddenNumber(INumberGenerator generator) => 
+        private void GenerateHiddenNumber(INumberGenerator generator) =>
             _hiddenNumber = generator.Generate(_settings.MinValueOfHiddenNumber, _settings.MaxValueOfHiddenNumber);
 
         private bool IsWinner(int answer) => _hiddenNumber == answer ? true : false;

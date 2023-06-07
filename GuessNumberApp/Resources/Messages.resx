@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Again" xml:space="preserve">
+    <value>Do you want to play again? If yes enter "yes" or no - "no".</value>
+  </data>
   <data name="Greeting" xml:space="preserve">
     <value>Hello, welcome to guess the number game.</value>
   </data>

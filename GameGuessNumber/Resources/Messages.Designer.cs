@@ -61,15 +61,6 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to play again? If yes enter &quot;yes&quot; or no - &quot;no&quot;..
-        /// </summary>
-        internal static string Again {
-            get {
-                return ResourceManager.GetString("Again", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Number of attempts exceeded..
         /// </summary>
         internal static string AttemptLimit {
