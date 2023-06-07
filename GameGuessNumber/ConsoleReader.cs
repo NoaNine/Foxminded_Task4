@@ -4,9 +4,10 @@ namespace GameGuessNumber
 {
     public class ConsoleReader : IUserInteractionReader
     {
-        public int Read()
+        public int Read() => Parse(Console.ReadLine());
+
+        private int Parse(string input)
         {
-            string input = Console.ReadLine();
             if (!int.TryParse(input, out int outputNamber))
             {
                 throw new ArgumentException("Must be only a positive number");
