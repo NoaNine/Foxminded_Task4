@@ -57,6 +57,7 @@ namespace GameGuessNumber
             if (answer < _settings.MinValueOfHiddenNumber || answer > _settings.MaxValueOfHiddenNumber)
             {
                 _writer.Write(Messages.Invalid);
+                return;
             }
             if (answer < _hiddenNumber)
             {
