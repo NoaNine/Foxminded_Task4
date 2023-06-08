@@ -117,20 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="Again" xml:space="preserve">
-    <value>Do you want to play again? If yes enter "yes" or no - "no".</value>
+  <data name="AttemptLimit" xml:space="preserve">
+    <value>Number of attempts exceeded.</value>
   </data>
   <data name="Bigger" xml:space="preserve">
     <value>Hidden number is bigger, try again.</value>
   </data>
-  <data name="Incorrect" xml:space="preserve">
-    <value>Incorrect answer.</value>
-  </data>
   <data name="Invalid" xml:space="preserve">
-    <value>You entered the incorrect number, must be a positive number from 0 to 100.</value>
-  </data>
-  <data name="Limit" xml:space="preserve">
-    <value>Number of attempts exceeded.</value>
+    <value>You entered the incorrect data, must be a number from 0 to 100.</value>
   </data>
   <data name="Smaller" xml:space="preserve">
     <value>Hidden number is smaller, try again.</value>

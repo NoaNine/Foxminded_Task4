@@ -61,11 +61,11 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Do you want to play again? If yes enter &quot;yes&quot; or no - &quot;no&quot;..
+        ///   Looks up a localized string similar to Number of attempts exceeded..
         /// </summary>
-        internal static string Again {
+        internal static string AttemptLimit {
             get {
-                return ResourceManager.GetString("Again", resourceCulture);
+                return ResourceManager.GetString("AttemptLimit", resourceCulture);
             }
         }
         
@@ -79,29 +79,11 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Incorrect answer..
-        /// </summary>
-        internal static string Incorrect {
-            get {
-                return ResourceManager.GetString("Incorrect", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to You entered the incorrect number, must be a positive number from 0 to 100..
+        ///   Looks up a localized string similar to You entered the incorrect data, must be a number from 0 to 100..
         /// </summary>
         internal static string Invalid {
             get {
                 return ResourceManager.GetString("Invalid", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Number of attempts exceeded..
-        /// </summary>
-        internal static string Limit {
-            get {
-                return ResourceManager.GetString("Limit", resourceCulture);
             }
         }
         

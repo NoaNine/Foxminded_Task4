@@ -10,15 +10,15 @@ namespace GameGuessNumber
         private readonly IUserInteractionWriter _writer;
         private readonly INumberGenerator _generator;
         private readonly Settings _settings;
-        private int HiddenNumber;
+        private int _hiddenNumber;
 
-        public Game(IUserInteractionReader input, IUserInteractionWriter output, INumberGenerator generator, IOptionsMonitor<Settings> settings)
+        public Game(IUserInteractionReader reader, IUserInteractionWriter writer, INumberGenerator generator, IOptionsMonitor<Settings> settings)
         {
-            _reader = input ?? throw new ArgumentNullException(nameof(input));
-            _writer = output ?? throw new ArgumentNullException(nameof(output));
+            _reader = reader ?? throw new ArgumentNullException(nameof(reader));
+            _writer = writer ?? throw new ArgumentNullException(nameof(writer));
             _generator = generator ?? throw new ArgumentNullException(nameof(generator));
             _settings = settings.CurrentValue ?? throw new ArgumentNullException(nameof(settings));
-            ValidSettings();
+            _settings.ValidSettings();
         }
 
         public void StartGame()
@@ -27,44 +27,46 @@ namespace GameGuessNumber
             int countRetry = 0;
             do
             {
-                countRetry++;
-                string input = _reader.Read();
-                if (!int.TryParse(input, out int inputNamber))
+                int answer = _reader.Read();
+                if (IsWinner(answer))
                 {
-                    _writer.Write(Messages.Invalid);
-                    continue;
+                    _writer.Write(Messages.Winner);
+                    break;
                 }
-                HandleAnswer(inputNamber);
+                HandleAnswer(answer);
+                countRetry++;
             }
             while (countRetry < _settings.MaxNumberAttempts);
-            if (countRetry == _settings.MaxNumberAttempts)
-            {
-                _writer.Write(Messages.Limit);
-            }
+            CheckAttempts(countRetry);
         }
 
-        private void GenerateHiddenNumber(INumberGenerator generator) => 
-            HiddenNumber = generator.Generate(_settings.MinValueOfHiddenNumber, _settings.MaxValueOfHiddenNumber);
+        private void GenerateHiddenNumber(INumberGenerator generator) =>
+            _hiddenNumber = generator.Generate(_settings.MinValueOfHiddenNumber, _settings.MaxValueOfHiddenNumber);
 
-        private void HandleAnswer(int inputNamber)
+        private bool IsWinner(int answer) => _hiddenNumber == answer ? true : false;
+
+        private void CheckAttempts(int countRetry)
         {
-            if (inputNamber == HiddenNumber)
+            if (countRetry == _settings.MaxNumberAttempts)
             {
-                _writer.Write(Messages.Winner);
+                _writer.Write(Messages.AttemptLimit);
             }
-            if (inputNamber < HiddenNumber)
+        }
+        private void HandleAnswer(int answer)
+        {
+            if (answer < _settings.MinValueOfHiddenNumber || answer > _settings.MaxValueOfHiddenNumber)
+            {
+                _writer.Write(Messages.Invalid);
+                return;
+            }
+            if (answer < _hiddenNumber)
             {
                 _writer.Write(Messages.Bigger);
             }
-            if (inputNamber > HiddenNumber)
+            if (answer > _hiddenNumber)
             {
                 _writer.Write(Messages.Smaller);
             }
-        }
-
-        private void ValidSettings()
-        {
-            throw new ArgumentException();
         }
     }
 }

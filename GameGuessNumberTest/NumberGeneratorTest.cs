@@ -3,16 +3,25 @@
     [TestClass]
     public class NumberGeneratorTest
     {
-        [TestMethod]
-        public void GenerateTest()
-        {
+        private readonly Mock<INumberGenerator> numbergeneratorMock = new Mock<INumberGenerator>();
 
+        [TestMethod]
+        public void Generate_GenerateRandomNumber()
+        {
+            var expected = 50;
+            numbergeneratorMock.Setup(g => g.Generate(0, 100)).Returns(() => expected);
+            var generator = numbergeneratorMock.Object;
+            var result = generator.Generate(0, 100);
+            Assert.AreEqual(expected, result);
         }
 
         [TestMethod]
-        public void ArgumentExceptionTest()
+        [ExpectedException(typeof(ArgumentException))]
+        public void Generate_ThrowException()
         {
-
+            numbergeneratorMock.Setup(g => g.Generate(2, 1)).Throws(new ArgumentException());
+            var result = numbergeneratorMock.Object;
+            result.Generate(2, 1);
         }
     }
 }

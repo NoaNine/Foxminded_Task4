@@ -61,6 +61,15 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Do you want to play again? If yes enter &quot;yes&quot; or no - &quot;no&quot;..
+        /// </summary>
+        internal static string Again {
+            get {
+                return ResourceManager.GetString("Again", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello, welcome to guess the number game..
         /// </summary>
         internal static string Greeting {
@@ -70,7 +79,7 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must guess the number..
+        ///   Looks up a localized string similar to You must guess the number from 0 to 100, please, enter your answer..
         /// </summary>
         internal static string Instruction {
             get {

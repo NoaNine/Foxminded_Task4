@@ -117,10 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Again" xml:space="preserve">
+    <value>Do you want to play again? If yes enter "yes" or no - "no".</value>
+  </data>
   <data name="Greeting" xml:space="preserve">
     <value>Hello, welcome to guess the number game.</value>
   </data>
   <data name="Instruction" xml:space="preserve">
-    <value>You must guess the number.</value>
+    <value>You must guess the number from 0 to 100, please, enter your answer.</value>
   </data>
 </root>
