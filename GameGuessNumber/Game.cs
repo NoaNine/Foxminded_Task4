@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace GameGuessNumber
 {
-    public class Game
+    public class Game : IGame
     {
         private readonly IUserInteractionReader _reader;
         private readonly IUserInteractionWriter _writer;
@@ -25,6 +25,7 @@ namespace GameGuessNumber
         {
             GenerateHiddenNumber(_generator);
             int countRetry = 0;
+            _writer.Write(Messages.Instruction);
             do
             {
                 int answer = _reader.Read();

@@ -26,7 +26,10 @@ namespace GameGuessNumberTest
             _userInteractionReaderMock.Setup(r => r.Read()).Returns(hiddenNumber);
             _userInteractionWriterMock.Setup(w => w.Write(It.IsAny<string>())).Callback((string value) =>
             {
-                Assert.AreEqual(expectedResult, value);
+                if (value != "You must guess the number from 0 to 100, enter your answer.")
+                {
+                    Assert.AreEqual(expectedResult, value);
+                }
             });
             game.StartGame();
         }
@@ -37,7 +40,7 @@ namespace GameGuessNumberTest
         [DataRow(50, 101, "You entered the incorrect data, must be a number from 0 to 100.")]
         public void StartGame_LostAndCorrectAnswer(int hiddenNumber, int inputNumber, string expectedMessage)
         {
-            var expected = new List<string>() { expectedMessage, "Number of attempts exceeded."};
+            var expected = new List<string>() { "You must guess the number from 0 to 100, enter your answer.", expectedMessage, "Number of attempts exceeded."};
             var result = new List<string>();
             var optionsMonitorMock = Mock.Of<IOptionsMonitor<Settings>>(_ => _.CurrentValue == _settings);
             var game = new Game(
@@ -74,7 +77,7 @@ namespace GameGuessNumberTest
             _userInteractionReaderMock.Setup(r => r.Read()).Returns(40);
             _userInteractionWriterMock.Setup(w => w.Write(It.IsAny<string>())).Callback((string value) =>
             {
-                if (value != "Number of attempts exceeded.")
+                if (value != "You must guess the number from 0 to 100, enter your answer." && value != "Number of attempts exceeded.")
                 {
                     result++;
                 }

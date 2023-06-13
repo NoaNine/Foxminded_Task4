@@ -79,6 +79,15 @@ namespace GameGuessNumber.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You must guess the number from 0 to 100, enter your answer..
+        /// </summary>
+        internal static string Instruction {
+            get {
+                return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to You entered the incorrect data, must be a number from 0 to 100..
         /// </summary>
         internal static string Invalid {
