@@ -23,11 +23,11 @@ namespace GuessNumberApp
                     services.AddScoped(typeof(INumberGenerator), typeof(NumberGenerator));
                     services.AddTransient(typeof(IUserInteractionReader), typeof(ConsoleReader));
                     services.AddTransient(typeof(IUserInteractionWriter), typeof(ConsoleWriter));
-                    //services.AddSingleton(typeof(Game));
-                    services.AddSingleton(typeof(IGame), typeof(GameCore));
+                    //services.AddSingleton(typeof(IGame), typeof(Game));
+                    services.AddSingleton(typeof(IGameNotification), typeof(GameCore));
                 })
                 .Build();
-            var game = host.Services.GetService<IGame>() ?? throw new ArgumentNullException("Game");
+            var game = host.Services.GetService<IGameNotification>() ?? throw new ArgumentNullException("Game");
             game.Notify += UserInteraction.MessageHandler;
             UserInteraction.Writer(Messages.Greeting);
             try

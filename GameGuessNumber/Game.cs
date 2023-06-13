@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace GameGuessNumber
 {
-    public class Game
+    public class Game : IGame
     {
         private readonly IUserInteractionReader _reader;
         private readonly IUserInteractionWriter _writer;

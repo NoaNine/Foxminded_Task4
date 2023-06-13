@@ -15,7 +15,7 @@ namespace GameGuessNumber
 
     public delegate void Notification(GameCore sender);
 
-    public class GameCore : IGame
+    public class GameCore : IGameNotification
     {
         private int _hiddenNumber, _userNumber;
         private readonly INumberGenerator _generator;
