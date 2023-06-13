@@ -70,6 +70,24 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Number of attempts exceeded..
+        /// </summary>
+        internal static string AttemptLimit {
+            get {
+                return ResourceManager.GetString("AttemptLimit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden number is bigger, try again..
+        /// </summary>
+        internal static string Bigger {
+            get {
+                return ResourceManager.GetString("Bigger", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Hello, welcome to guess the number game..
         /// </summary>
         internal static string Greeting {
@@ -79,11 +97,38 @@ namespace GuessNumberApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You must guess the number from 0 to 100, please, enter your answer..
+        ///   Looks up a localized string similar to You must guess the number from 0 to 100, enter your answer..
         /// </summary>
         internal static string Instruction {
             get {
                 return ResourceManager.GetString("Instruction", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You entered the incorrect data, must be a number from 0 to 100..
+        /// </summary>
+        internal static string Invalid {
+            get {
+                return ResourceManager.GetString("Invalid", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Hidden number is smaller, try again..
+        /// </summary>
+        internal static string Smaller {
+            get {
+                return ResourceManager.GetString("Smaller", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You WON, congratulation!.
+        /// </summary>
+        internal static string Winner {
+            get {
+                return ResourceManager.GetString("Winner", resourceCulture);
             }
         }
     }

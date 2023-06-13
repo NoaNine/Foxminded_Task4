@@ -7,7 +7,7 @@ using Microsoft.Extensions.Hosting;
 
 namespace GuessNumberApp
 {
-    internal class Program
+    public class Program
     {
         static void Main(string[] args)
         {
@@ -20,31 +20,27 @@ namespace GuessNumberApp
                 .ConfigureServices((_, services) =>
                 {
                     services.Configure<Settings>(_.Configuration.GetSection("Settings"));
+                    services.AddScoped(typeof(INumberGenerator), typeof(NumberGenerator));
                     services.AddTransient(typeof(IUserInteractionReader), typeof(ConsoleReader));
                     services.AddTransient(typeof(IUserInteractionWriter), typeof(ConsoleWriter));
-                    services.AddScoped(typeof(INumberGenerator), typeof(NumberGenerator));
-                    services.AddSingleton(typeof(Game));
+                    //services.AddSingleton(typeof(Game));
+                    services.AddSingleton(typeof(IGame), typeof(GameCore));
                 })
                 .Build();
-            var game = host.Services.GetService<Game>() ?? throw new ArgumentNullException("Game");
-            Console.WriteLine(Messages.Greeting);
-            Console.WriteLine(Messages.Instruction);
-            do
+            var game = host.Services.GetService<IGame>() ?? throw new ArgumentNullException("Game");
+            game.Notify += UserInteraction.MessageHandler;
+            UserInteraction.Writer(Messages.Greeting);
+            try
             {
-                game.StartGame();
+                do
+                {
+                    game.StartGame();
+                }
+                while (UserInteraction.PlayAgain());
             }
-            while (PlayAgain());
-        }
-        
-        private static bool PlayAgain()
-        {
-            Console.WriteLine(Messages.Again);
-            string answer = Console.ReadLine();
-            switch (answer)
+            catch (Exception ex)
             {
-                case "yes": return true;
-                case "no": return false;
-                default: throw new ArgumentException("Incorrect answer");
+                UserInteraction.Writer(ex.ToString());
             }
         }
     }

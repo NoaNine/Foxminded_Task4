@@ -123,6 +123,9 @@
   <data name="Bigger" xml:space="preserve">
     <value>Hidden number is bigger, try again.</value>
   </data>
+  <data name="Instruction" xml:space="preserve">
+    <value>You must guess the number from 0 to 100, enter your answer.</value>
+  </data>
   <data name="Invalid" xml:space="preserve">
     <value>You entered the incorrect data, must be a number from 0 to 100.</value>
   </data>

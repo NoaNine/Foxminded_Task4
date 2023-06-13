@@ -25,6 +25,7 @@ namespace GameGuessNumber
         {
             GenerateHiddenNumber(_generator);
             int countRetry = 0;
+            _writer.Write(Messages.Instruction);
             do
             {
                 int answer = _reader.Read();
