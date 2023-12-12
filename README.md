@@ -1,16 +1,21 @@
-# Task4
+# FoxmindEd_Task4
+The project was created by Oleksandr Havlytskyi for educational purposes at the FoxmindEd course.
+____
+**Technology or principles have been mastered( or repeated):** IoC Container, DI, MsTest, naming conventions.
+____
+**The purpose of the project:** Learn to create IHost, and get settings from .json file.
 
-Проект створено Гавлицьким Олександром в навчальних цілях на курсі FoxmindEd.
+**Task description:**
+Rules of the game:
 
-Опис задачі:
-Program should find the maximum sum of elements in line from the list of lines.
+Application generates an integer number from 0 till 100 (included).
 
-Program will take path to file as input (user can enter path in console application or send as command line interface argument if they exist).
+User enters a number, trying to guess the computer's number.
 
-Each line of the file contains a number set (number separator is comma, decimal separator is point).
+Result to user's input can be:
 
-Result should be the number of the line with a maximum sum of elements in line.
+If the user enters not a number - the result will be an error and ask to enter again.
 
-If line contains non numeric elements - line marked as broken.
+If the user enters a number bigger/smaller - the result will be advice for the user "My number is bigger/smaller and ask to enter again.
 
-As a separate list, write a number of lines with non numeric elements (“wrong elements”).
+If the user guessed the number-congratulate them and ask to play again
