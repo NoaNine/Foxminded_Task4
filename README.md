@@ -1,7 +1,7 @@
 # FoxmindEd_Task4
 The project was created by Oleksandr Havlytskyi for educational purposes at the FoxmindEd course.
 ____
-**Technology or principles have been mastered( or repeated):** IoC Container, DI, MsTest, naming conventions.
+**Technology or principles have been mastered( or repeated):** IoC Container, DI, .json configuration, MsTest, naming conventions.
 ____
 **The purpose of the project:** Learn to create IHost, and get settings from .json file.
 
